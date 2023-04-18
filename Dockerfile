@@ -4,7 +4,7 @@ COPY . .
 RUN gradle build
 
 FROM openjdk:17
-RUN apt-get update && apt-get install -y nginx
+RUN yum update -y && yum install -y nginx
 ENV JAR_NAME=bizoncup-0.0.1-SNAPSHOT.jar
 ENV APP_HOME=/usr/app/
 WORKDIR $APP_HOME
