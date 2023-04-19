@@ -33,10 +33,6 @@ public class ArdfController {
         if (ardfData == null) {
             return ResponseEntity.notFound().build();
         }
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Access-Control-Allow-Origin", "*");
-        return ResponseEntity.ok()
-                .headers(headers)
-                .body(ardfData);
+        return ResponseEntity.ok().body(ardfData);
     }
 }
