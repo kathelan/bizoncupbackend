@@ -1,6 +1,7 @@
 package pl.github.kathelan.bizoncup.api.controllers;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -32,7 +33,10 @@ public class ArdfController {
         if (ardfData == null) {
             return ResponseEntity.notFound().build();
         }
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Access-Control-Allow-Origin", "*");
         return ResponseEntity.ok()
+                .headers(headers)
                 .body(ardfData);
     }
 }
