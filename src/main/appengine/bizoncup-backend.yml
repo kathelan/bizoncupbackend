@@ -2,7 +2,13 @@ runtime: custom
 env: flex
 service: bizoncup-backend
 
-# This block is optional but recommended for better resource allocation.
+automatic_scaling:
+  min_num_instances: 1
+  max_num_instances: 5  # Adjust this value based on your expected traffic
+  cool_down_period_sec: 60
+  cpu_utilization:
+    target_utilization: 0.5
+
 resources:
   cpu: 1
   memory_gb: 1
