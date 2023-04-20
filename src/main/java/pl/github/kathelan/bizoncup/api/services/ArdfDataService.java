@@ -7,10 +7,11 @@ import pl.github.kathelan.bizoncup.api.dtos.ardf.ArdfDataRequest;
 public class ArdfDataService {
     private ArdfDataRequest ardfData;
 
-    public ArdfDataRequest getArdfData() {
+    public synchronized ArdfDataRequest getArdfData() {
         return ardfData;
     }
-    public void setArdfData(ArdfDataRequest ardfData) {
+
+    public synchronized void setArdfData(ArdfDataRequest ardfData) {
         this.ardfData = ardfData;
     }
 }
