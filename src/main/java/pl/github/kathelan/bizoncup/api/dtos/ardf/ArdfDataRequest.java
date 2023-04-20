@@ -1,7 +1,10 @@
 package pl.github.kathelan.bizoncup.api.dtos.ardf;
 
+import lombok.Data;
+
 import java.util.List;
 
+@Data
 public class ArdfDataRequest {
     public String SOURCE;
     public String CONTEST;

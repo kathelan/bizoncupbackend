@@ -19,7 +19,9 @@ public class ArdfService {
     public void processJsonData(String key) {
         try {
             ArdfDataRequest ardfData = objectMapper.readValue(key, ArdfDataRequest.class);
-            ardfDataService.setArdfData(ardfData);
+            if (!"READOUT".equals(ardfData.getSOURCE())) {
+                ardfDataService.setArdfData(ardfData);
+            }
         } catch (JsonMappingException e) {
             throw new JsonMappingRuntimeException("Error mapping JSON data", e);
         } catch (JsonProcessingException e) {
